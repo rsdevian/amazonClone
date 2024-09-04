@@ -3,11 +3,11 @@ import "./Checkout.css"
 import Subtotal from "./subtotal/subtotal";
 import Checkoutproduct from "./checkoutProduct/CheckoutProduct.jsx"
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function Checkout() {
 
-  const [ { basket }, dispatch ] = useStateValue();
+  const [ { basket, user }, dispatch ] = useStateValue();
 
   return (
       <div className="checkout">
@@ -16,8 +16,9 @@ export default function Checkout() {
                 className="checkout__ad" 
                 src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg" 
                 alt="checkout ad" 
-              />
+              /> 
               <div>
+                <h3>Hello, {user?.email}</h3>
                   <h2 className="checkout__title">Your Shopping Basket</h2>
                   {basket.map(item => (
                       <Checkoutproduct 
